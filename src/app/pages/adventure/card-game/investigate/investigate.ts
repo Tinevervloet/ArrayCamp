@@ -40,7 +40,7 @@ export class Investigate extends Exercise {
     { index: 7, text: 'For intI = 1 To AANTAL', indent: 4 },
     { index: 8, text: 'intAantalKaarten(intI) = intI * 2', indent: 8 },
     { index: 9, text: 'Next intI', indent: 4 },
-    { index: 10, text: 'intMax = 1', indent: 4 },
+    { index: 10, text: 'intMax = 10', indent: 4 },
     { index: 11, text: 'For intI = 1 To AANTAL', indent: 4 },
     { index: 12, text: 'If intAantalKaarten(intI) > intMax Then', indent: 8 },
     { index: 13, text: 'intMax = intAantalKaarten(intI)', indent: 12 },

@@ -21,7 +21,7 @@ export class Modify extends Exercise implements OnInit {
   readonly question1Answer = model<string>();
   readonly question1Checked = signal(false);
   readonly question1Correct = signal(false);
-  readonly question1Solution = 'intMax = intAantalKaarten(1)';
+  readonly question1Solution = 'intMax = intAantalKaarten(10)';
   readonly question1ShowFeedback = signal(false);
 
   ngOnInit(): void {

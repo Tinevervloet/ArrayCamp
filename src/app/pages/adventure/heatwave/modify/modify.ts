@@ -21,7 +21,10 @@ export class Modify extends Exercise implements OnInit {
   readonly question1Answer = model<string>();
   readonly question1Checked = signal(false);
   readonly question1Correct = signal(false);
-  readonly question1Solution = 'If intIn >= -10 And intIn <= 50 Then';
+  readonly question1Solution = 'If intIn >= -10 And intIn <= 50 Then'||
+  'If Not (intIn < -10 Or intIn > 50) Then'|| 
+  'If Not(intIn < -10 Or intIn > 50) Then' || 
+  'If intIn >= -10 and intIn <= 50 Then';
   readonly question1ShowFeedback = signal(false);
 
   ngOnInit(): void {

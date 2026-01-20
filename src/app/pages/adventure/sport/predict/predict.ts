@@ -44,7 +44,7 @@ export class Predict extends Exercise {
 
   readonly question1Checked = signal(false);
   readonly question1Correct = signal(false);
-  readonly question1Solution = ['Fietsen', 'Lopen', 'Zwemmen', '6', '10', '14', '1', '2', '3'];
+  readonly question1Solution = ['Fietsen', 'Zwemmen', 'Lopen', '6', '14', '10', '1', '2', '3'];
   readonly question1Elements = signal(shuffle(this.question1Solution));
   readonly question1ActValue1 = signal<string[]>([]);
   readonly question1ActValue1Correct = signal(false);
