@@ -14,9 +14,13 @@
     </p>
     <mat-list cdkDragLockAxis="y" cdkDropList class="code-list" (cdkDropListDropped)="question1LineDropped($event)">
       @for (line of question1Answer(); track line) { @if (line.empty) {
-      <div class="empty-code-line"></div>
+      <div cdkDrag class="empty-code-line" [cdkDragDisabled]="line.dragDisabled"></div>
       } @else {
-      <mat-list-item cdkDrag class="cursor-pointer!" [ngClass]="{ 'correct': line.correct }">
+      <mat-list-item
+        cdkDrag
+        class="cursor-pointer!"
+        [cdkDragDisabled]="line.dragDisabled"
+        [ngClass]="{ 'correct': line.correct }">
         <code language="vbnet" [style.padding-left.px]="line.indent ? 12.5 * line.indent : undefined">
           {{ line.text }}
         </code>
