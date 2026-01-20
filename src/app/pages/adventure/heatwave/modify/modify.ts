@@ -21,8 +21,9 @@ export class Modify extends Exercise implements OnInit {
   readonly question1Answer = model<string>();
   readonly question1Checked = signal(false);
   readonly question1Correct = signal(false);
-  readonly question1Solution = 'If intIn >= -10 And intIn <= 50 Then';
+  readonly question1Solution = [ 'If intIn >= -10 And intIn <= 50 Then', 'If Not(intIn < -10 Or intIn > 50) Then' ];
   readonly question1ShowFeedback = signal(false);
+  
 
   ngOnInit(): void {
     this.question1Answer.set('If intIn < -10 Or intIn > 50 Then');
@@ -31,7 +32,7 @@ export class Modify extends Exercise implements OnInit {
   override check(): void {
     if (this.question() === 1) {
       this.question1Checked.set(true);
-      this.question1Correct.set(this.question1Answer()?.trim() === this.question1Solution);
+      this.question1Correct.set(this.question1Solution.includes(this.question1Answer()?.trim() ?? ''));
 
       if (!this.question1Correct()) {
         const incorrectBottomSheetRef = this.bottomSheet.open(IncorrectBottomSheet, {
@@ -43,7 +44,7 @@ export class Modify extends Exercise implements OnInit {
         incorrectBottomSheetRef.afterDismissed().subscribe((result) => {
           if (result === 'see-answer') {
             this.continueWithoutStar.set(true);
-            this.question1Answer.set(this.question1Solution);
+            this.question1Answer.set(this.question1Solution[0]);
             this.question1Correct.set(true);
             this.question1ShowFeedback.set(true);
             this.checked.set(true);
